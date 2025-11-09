@@ -57,9 +57,9 @@ double calculate_modularity_change(const vector<vector<pair<int, double>>>& adj,
         }
     }
 
-    cout << 2.0 * (k_i_in_new - k_i_in_old) / m  << "This is internal changes\n";
-    cout << "sum_tot_old: " << sum_tot_old << " sum_tot_new: " << sum_tot_new << " k_i: " << k_i << "\n";
-    cout << 2.0 * ((k_i * (sum_tot_old - sum_tot_new - k_i)) / (m * m)) << "This is degree changes\n";
+    // cout << 2.0 * (k_i_in_new - k_i_in_old) / m  << "This is internal changes\n";
+    // cout << "sum_tot_old: " << sum_tot_old << " sum_tot_new: " << sum_tot_new << " k_i: " << k_i << "\n";
+    // cout << 2.0 * ((k_i * (sum_tot_old - sum_tot_new - k_i)) / (m * m)) << "This is degree changes\n";
     delta_Q = 2.0 * (k_i_in_new - k_i_in_old) / m + 2.0 * ((k_i * (sum_tot_old - sum_tot_new - k_i)) / (m * m));
     return delta_Q;
 }
@@ -198,10 +198,10 @@ int main(){
                 if(community[node_to_move] == community[target_community_node])
                     continue;
                 double modularity_change = calculate_modularity_change(adj, community, node_to_move, community[node_to_move], community[target_community_node], community_degree, community_internal);
-                cout << "Try Move " << node_to_move << " from community " << community[node_to_move] << " to " << community[target_community_node] << "\n";
-                print_communities(community, partition_nodes);
-                cout << "Current modularity: " << current_modularity << " " ;
-                cout << "Possible new modularity: " << modularity_change + current_modularity << "\n";
+                // cout << "Try Move " << node_to_move << " from community " << community[node_to_move] << " to " << community[target_community_node] << "\n";
+                // print_communities(community, partition_nodes);
+                // cout << "Current modularity: " << current_modularity << " " ;
+                // cout << "Possible new modularity: " << modularity_change + current_modularity << "\n";
                 if(modularity_change > 0){
                     current_modularity += modularity_change;
                     update_community_degree_internal(adj, community, community_degree, community_internal, node_to_move, community[node_to_move], community[target_community_node]);

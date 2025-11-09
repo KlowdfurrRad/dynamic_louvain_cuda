@@ -189,6 +189,7 @@ __global__ void louvain_kernel(
 
             // take lock on nodes in order
             int first_node_lock = min(node_to_move, target_community_node);
+            // first_node_lock = node_to_move;
             int second_node_lock = max(node_to_move, target_community_node);
             while (atomicCAS(&d_vertex_locks[first_node_lock], 0, 1) != 0) {}
             while (atomicCAS(&d_vertex_locks[second_node_lock], 0, 1) != 0) {}

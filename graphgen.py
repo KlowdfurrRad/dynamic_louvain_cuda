@@ -21,7 +21,7 @@ def create_weighted_random_graph_and_output_edgelist(num_nodes, probability_of_e
 
 # Example usage:
 num_nodes = 100
-probability_of_edge = 0.1
+probability_of_edge = 0.04
 min_weight = 1
 max_weight = 10
 
@@ -33,7 +33,7 @@ for i in range(5):
         f.write(edge_list_output)
 
 num_nodes = 1000
-probability_of_edge = 0.03
+probability_of_edge = 0.02
 min_weight = 1
 max_weight = 10
 
